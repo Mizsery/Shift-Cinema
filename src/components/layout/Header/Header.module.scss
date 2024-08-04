@@ -1,0 +1,68 @@
+.header {
+  height: 84px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    p {
+      font-family: 'Fira Sans';
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 16.76px;
+      font-size: 14px;
+
+      color: var(--bg-brand);
+    }
+  }
+
+  .logo {
+    width: 52px;
+    height: 37px;
+    fill: var(--bg-brand);
+    position: relative;
+    right: 24px;
+  }
+}
+
+.navSection {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: var(--brand);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+hr {
+  border: 1px solid var(--indicator-light);
+}

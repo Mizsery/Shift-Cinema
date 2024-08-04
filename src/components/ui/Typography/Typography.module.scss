@@ -1,0 +1,43 @@
+@import '@/static/styles/mixins.scss';
+
+.primary {
+  color: var(--text-primary);
+}
+
+.secondary {
+  color: var(--text-secondary);
+}
+
+.tertiary {
+  color: var(--text-tertiary);
+}
+
+.quaternary {
+  color: var(--text-quaternary);
+}
+
+.h1 {
+  @include typography-h1;
+}
+
+.h2 {
+  @include typography-h2;
+}
+
+.paragraph-16-400 {
+  @include typography-paragraph-16;
+  font-weight: 400;
+}
+
+.paragraph-16-500 {
+  @include typography-paragraph-16;
+  font-weight: 500;
+}
+
+.paragraph-14 {
+  @include typography-paragraph-14;
+}
+
+.paragraph-12 {
+  @include typography-paragraph-12;
+}

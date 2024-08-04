@@ -1,0 +1,58 @@
+@mixin media-desktop {
+  @media screen and (min-width: 980px) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media screen and (min-width: 768px) and (max-width: 979px) {
+    @content;
+  }
+}
+
+@mixin media-phones {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin typography-h1 {
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+@mixin typography-h2 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+@mixin typography-h3 {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+@mixin typography-paragraph-16 {
+  font-family: Inter;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin typography-paragraph-14 {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin typography-paragraph-12 {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
