@@ -1,0 +1,11 @@
+.div {
+  display: flex;
+}
+
+.active {
+  fill: var(--indicator-attention);
+}
+
+.inactive {
+  fill: var(--indicator-light);
+}

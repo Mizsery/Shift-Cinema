@@ -5,9 +5,9 @@ import { Container } from '../Container/Container';
 import styles from './Header.module.scss';
 
 import Logo from '@/assets/icons/logo.svg?react';
-import SignIn from '@/assets/icons/SignIn.svg?react';
-import Ticket from '@/assets/icons/Ticket.svg?react';
-import User from '@/assets/icons/User.svg?react';
+import SignIn from '@/assets/icons/signIn.svg?react';
+import Ticket from '@/assets/icons/ticket.svg?react';
+import User from '@/assets/icons/user.svg?react';
 
 export const Header = () => {
   return (
@@ -23,18 +23,18 @@ export const Header = () => {
               <Logo className={styles.logo} />
             </Link>
             <Link to='/profile'>
-              <User />
+              <User width={24} height={24} />
               <p>Профиль</p>
             </Link>
             <Link to='/tickets'>
-              <Ticket />
+              <Ticket width={24} height={24} />
               <p>Билеты</p>
             </Link>
           </div>
 
           <div className={styles.navSection}>
             <Link to='/auth'>
-              <SignIn fill='#712d9c' />
+              <SignIn width={24} height={24} />
               <p>Вход</p>
             </Link>
           </div>

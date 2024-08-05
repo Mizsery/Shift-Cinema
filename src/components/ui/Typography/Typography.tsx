@@ -3,17 +3,20 @@ import clsx from 'clsx';
 
 import styles from './Typography.module.scss';
 
-type TypographyComponent = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
+type TypographyComponent = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 
 type TypographyColor = 'primary' | 'secondary' | 'tertiary' | 'quartenery';
 
 type TypographyVariant =
   | 'h1'
   | 'h2'
+  | 'h3'
   | 'paragraph-16-500'
   | 'paragraph-16-400'
   | 'paragraph-14'
-  | 'paragraph-12';
+  | 'paragraph-12'
+  | 'paragraph-Roboto-400'
+  | 'paragraph-Roboto-600';
 
 interface TypographyProps<Component extends TypographyComponent> {
   component?: Component;
@@ -26,8 +29,8 @@ export const Typography = forwardRef(
   <Component extends TypographyComponent = 'p'>(
     {
       component = 'p' as Component,
-      color = 'primary' as TypographyColor,
       variant = 'paragraph-16-400' as TypographyVariant,
+      color = 'primary' as TypographyColor,
       className,
       ...props
     }: TypographyProps<Component> & React.ComponentProps<Component>,
@@ -35,7 +38,7 @@ export const Typography = forwardRef(
   ) =>
     createElement(component, {
       ref,
-      className: clsx(styles[color], styles[variant], className),
+      className: clsx(styles[variant], styles[color], className),
       ...props
     })
 );

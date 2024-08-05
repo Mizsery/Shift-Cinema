@@ -24,6 +24,10 @@
   @include typography-h2;
 }
 
+.h3 {
+  @include typography-h3;
+}
+
 .paragraph-16-400 {
   @include typography-paragraph-16;
   font-weight: 400;
@@ -40,4 +44,14 @@
 
 .paragraph-12 {
   @include typography-paragraph-12;
+}
+
+.paragraph-Roboto-400 {
+  @include typography-paragraph-Roboto;
+  font-weight: 400;
+}
+
+.paragraph-Roboto-600 {
+  @include typography-paragraph-Roboto;
+  font-weight: 600;
 }

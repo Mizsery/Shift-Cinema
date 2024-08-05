@@ -56,3 +56,9 @@
   font-weight: 400;
   line-height: 16px;
 }
+
+@mixin typography-paragraph-Roboto {
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 14px;
+}

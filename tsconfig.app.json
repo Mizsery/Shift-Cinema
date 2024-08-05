@@ -29,5 +29,5 @@
       "@components/*": ["src/components/*"]
     }
   },
-  "include": ["src", "svgr.d.ts"]
+  "include": ["src", "src/svgr.d.ts"]
 }

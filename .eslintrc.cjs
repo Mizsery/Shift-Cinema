@@ -6,7 +6,8 @@ module.exports = {
     'airbnb/hooks',
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:@tanstack/eslint-plugin-query/recommended'
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -20,7 +21,6 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 
-    'no-shadow': 'error',
     /*Import*/
     'import/first': 'error',
     'import/extensions': 'off',
@@ -65,6 +65,7 @@ module.exports = {
     'no-console': ['warn', { allow: ['info', 'error'] }],
 
     /*Typescript*/
-    '@typescript-eslint/no-shadow': 'off'
+    '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/no-floating-promises': 'off'
   }
 };

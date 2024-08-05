@@ -17,11 +17,11 @@ export const Container = forwardRef(
       className,
       ...props
     }: ContainerComponentProps<Component> & React.ComponentProps<Component>,
-    ref: React.ForwardedRef<React.ComponentRef<Component>>,
+    ref: React.ForwardedRef<React.ComponentRef<Component>>
   ) =>
     createElement(component, {
       ref,
       className: clsx(styles.container, className),
-      ...props,
-    }),
+      ...props
+    })
 );

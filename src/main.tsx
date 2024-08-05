@@ -2,9 +2,9 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 
+import '@/static/styles/reset.scss';
 import '@/static/styles/variables.scss';
 import '@/static/styles/fonts.scss';
-import '@/static/styles/reset.scss';
 import '@/static/styles/global.scss';
 
 // Import the generated route tree
@@ -26,6 +26,6 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <RouterProvider router={router} />
-    </StrictMode>,
+    </StrictMode>
   );
 }

@@ -1,14 +1,21 @@
 @font-face {
-  font-family: 'Inter';
-  src: url('@/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf'), format('ttf');
+  font-family: Inter;
+  src: url(@/assets/fonts/Inter/static/Inter_18pt-Regular.ttf), format('ttf');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Fira Sans';
-  src: url('@/assets/fonts/Fira_Sans/FiraSans-SemiBold.ttf'), format('ttf');
+  src: url(@/assets/fonts/Fira_Sans/FiraSans-SemiBold.ttf), format('ttf');
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(@/assets/fonts/Roboto/Roboto-Regular.ttf), format('ttf');
   font-style: normal;
   font-display: swap;
 }
