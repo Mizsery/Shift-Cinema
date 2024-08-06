@@ -1,0 +1,43 @@
+@import '@/static/styles/mixins.scss';
+
+.button {
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  @include typography-paragraph-16;
+  font-weight: 600;
+}
+
+.contain {
+  width: 100%;
+  padding: 16px 32px;
+  border-radius: 16px;
+  color: var(--text-invert);
+  background-color: var(--bg-brand);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: inherit;
+
+  svg {
+    fill: var(--indicator-normal);
+    width: 24;
+    height: 24;
+    size: 24;
+  }
+}
+
+.outline {
+  background-color: inherit;
+}

@@ -1,1 +1,3 @@
-export * from './cinema/getCinemaToday';
+export * from './film/getFilmById';
+export * from './film/getFilmSchedule';
+export * from './film/getFilmsToday';

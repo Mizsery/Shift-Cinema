@@ -1,51 +1,41 @@
-import { useEffect, useState } from 'react';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { Link } from '@tanstack/react-router';
 import clsx from 'clsx';
 
 import styles from './Home.module.scss';
 
-import { Rating, Typography } from '@/components';
-import { getCinemaToday, GetCinemaTodayResponse } from '@/utils/api/request';
-import { filmRelease } from '@/utils/helpers/filmRelease';
+import { Button, FilmImage, Rating, Typography } from '@/components';
+import { getFilmsTodayQuery } from '@/utils/api/request';
 
 interface HomeProps {
   className?: string;
 }
 
 export const Home = ({ className }: HomeProps) => {
-  const [data, setData] = useState<GetCinemaTodayResponse | undefined>(undefined);
-
-  useEffect(() => {
-    getCinemaToday()
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+  const {
+    data: { films },
+    isLoading
+  } = useSuspenseQuery(getFilmsTodayQuery);
 
   return (
-    <div className={clsx(styles, className)}>
+    <div className={clsx(styles.main, className)}>
       <Typography component='h2' variant='h2' color='primary' className={styles.title}>
         Афиша
       </Typography>
 
       <section className={styles.section}>
-        {data?.success &&
-          data.films.map((film) => (
+        {isLoading ? (
+          <div>Loading</div>
+        ) : (
+          films.map((film) => (
             <article key={film.id} className={styles.filmCard}>
-              <div className={styles.imageBlock}>
-                <img
-                  src={`${import.meta.env.VITE_BASE_URL}${film.img}`}
-                  alt={`Фильм ${film.name}`}
-                />
-                <div className={styles.info}>
-                  <Typography component='p' variant='paragraph-Roboto-600' color='primary'>
-                    {film.genres[0]}
-                  </Typography>
-                  <Typography component='p' variant='paragraph-Roboto-400' color='primary'>
-                    {filmRelease(film.country.name, film.releaseDate)}
-                  </Typography>
-                </div>
-              </div>
+              <FilmImage
+                name={film.name}
+                img={film.img}
+                genres={film.genres}
+                releaseDate={film.releaseDate}
+                country={film.country}
+              />
 
               <div className={styles.descriptionSection}>
                 <Typography component='h3' variant='h3' color='primary'>
@@ -68,11 +58,12 @@ export const Home = ({ className }: HomeProps) => {
                 </Typography>
               </div>
 
-              <div>
-                <button>Подробнее</button>
-              </div>
+              <Link to={`/film/${film.id}`}>
+                <Button>Подробнее</Button>
+              </Link>
             </article>
-          ))}
+          ))
+        )}
       </section>
     </div>
   );

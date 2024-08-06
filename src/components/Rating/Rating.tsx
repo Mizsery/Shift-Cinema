@@ -18,6 +18,7 @@ export const Rating = ({ className, rating }: RatingProps) => {
         .fill(0)
         .map((_, index) => (
           <Star
+            key={index}
             className={index < starRating ? styles.active : styles.inactive}
             width={24}
             height={24}

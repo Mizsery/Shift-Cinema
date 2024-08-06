@@ -1,6 +1,6 @@
 export const filmRelease = (country: string, releaseDate: string) => {
-  if (releaseDate.length === 1) {
+  if (releaseDate.length === 1 || !releaseDate) {
     return country;
   }
-  return `${country}, ${releaseDate.split(' ')[2]}`;
+  return `${country}, ${releaseDate.split(' ').slice(-1)[0]}`;
 };

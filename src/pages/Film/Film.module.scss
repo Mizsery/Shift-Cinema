@@ -1,0 +1,42 @@
+@import '@/static/styles/mixins.scss';
+
+.goBack {
+  margin: 24px 0;
+}
+
+.sectionFilm {
+  display: flex;
+  gap: 32px;
+
+  @include media-phones {
+    flex-direction: column;
+  }
+}
+
+.filmInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .rating {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+  }
+
+  .descriptionBlock {
+    .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    button {
+      @include typography-paragraph-16;
+      font-weight: 400;
+      color: var(--text-quaternary);
+      padding: 0;
+    }
+  }
+}

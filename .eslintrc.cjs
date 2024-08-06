@@ -60,6 +60,7 @@ module.exports = {
       }
     ],
     'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
 
     /* Console*/
     'no-console': ['warn', { allow: ['info', 'error'] }],
