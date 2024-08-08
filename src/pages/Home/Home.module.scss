@@ -18,23 +18,23 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
 
-.descriptionSection {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  .descriptionSection {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-  .description {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
-}
 
-.rating {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  .ratingSection {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 }

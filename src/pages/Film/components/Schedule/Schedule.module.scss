@@ -1,0 +1,61 @@
+@import '@/static/styles/mixins.scss';
+
+button {
+  @include typography-paragraph-14;
+  padding: 10px 16px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.tabs {
+  display: flex;
+  background: var(--bg-secondary);
+  border-radius: 14px;
+  padding: 2px;
+  align-items: center;
+  width: fit-content;
+
+  button {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: none;
+
+    &:not(.activeDate) {
+      color: var(--text-tertiary);
+    }
+  }
+
+  .activeDate {
+    background: var(--bg-primary);
+    border: 0;
+  }
+}
+
+.hail {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .seance {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @include typography-paragraph-12;
+
+    .times {
+      display: flex;
+      gap: 8px;
+
+      button {
+        background: inherit;
+        border-radius: 14px;
+        border: 1px solid var(--indicator-light);
+      }
+
+      .activeTime {
+        background: var(--indicator-medium);
+        color: var(--text-invert);
+      }
+    }
+  }
+}

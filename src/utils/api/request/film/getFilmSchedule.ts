@@ -10,7 +10,7 @@ type GetFilmScheduleConfig = AxiosRequestConfig<GetFilmSchedule>;
 
 interface GetFilmScheduleResponse {
   success: boolean;
-  schedules: FilmSchedule;
+  schedules: FilmSchedule[];
 }
 
 const getFilmSchedule = ({ params: { filmId }, config }: GetFilmScheduleConfig) =>

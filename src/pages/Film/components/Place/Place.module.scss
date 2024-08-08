@@ -1,0 +1,83 @@
+@import '@/static/styles/mixins.scss';
+
+.place {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  justify-content: space-between;
+
+  @include media-phones {
+    flex-direction: column;
+  }
+}
+
+.places {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+
+  .placeHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+    width: 100%;
+
+    hr {
+      height: 4px;
+      width: 100%;
+      border-radius: 16px;
+      background-color: var(--indicator-light);
+    }
+  }
+
+  .rowsPlaces {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    p {
+      text-align: left;
+    }
+
+    .rows {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .row {
+      display: flex;
+      gap: 24px;
+
+      span {
+        text-align: center;
+        width: 16px;
+      }
+
+      .blockedPlace {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        padding: 2px 0;
+        border: none;
+        background-color: var(--indicator-light);
+      }
+
+      .freePlace {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        padding: 2px 0;
+        border: none;
+        background-color: var(--brand);
+      }
+    }
+  }
+}
+
+.buyTickets {
+  width: 100%;
+}

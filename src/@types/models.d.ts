@@ -45,10 +45,12 @@ interface Film {
   };
 }
 
+type HailName = 'Red' | 'Blue' | 'Green';
+
 interface Seances {
   time: string;
   hall: {
-    name: string;
+    name: HailName;
     places: {
       price: number;
       type: TypePlaces;
@@ -67,8 +69,13 @@ interface Seances {
 }
 
 interface FilmSchedule {
-  schedules: {
-    date: string;
-    seances: Seances[];
+  date: string;
+  seances: Seances[];
+}
+
+interface FilmSeances {
+  date: string;
+  seances: Record<HailName, Seances[]> & {
+    [key: string]: Seances[];
   };
 }

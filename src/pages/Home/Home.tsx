@@ -29,13 +29,7 @@ export const Home = ({ className }: HomeProps) => {
         ) : (
           films.map((film) => (
             <article key={film.id} className={styles.filmCard}>
-              <FilmImage
-                name={film.name}
-                img={film.img}
-                genres={film.genres}
-                releaseDate={film.releaseDate}
-                country={film.country}
-              />
+              <FilmImage {...film} />
 
               <div className={styles.descriptionSection}>
                 <Typography component='h3' variant='h3' color='primary'>
@@ -51,7 +45,7 @@ export const Home = ({ className }: HomeProps) => {
                 </Typography>
               </div>
 
-              <div className={styles.rating}>
+              <div className={styles.ratingSection}>
                 <Rating rating={film.userRatings.imdb} />
                 <Typography component='p' variant='paragraph-14' color='tertiary'>
                   {`Kinopoisk - ${film.userRatings.kinopoisk}`}

@@ -4,7 +4,7 @@ import { Typography } from '../ui';
 
 import styles from './FilmImage.module.scss';
 
-import { filmRelease } from '@/utils/helpers/filmRelease';
+import { filmRelease } from '@/utils/helpers';
 
 interface FilmImageProps {
   className?: string;

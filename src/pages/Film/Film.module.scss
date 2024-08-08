@@ -6,37 +6,56 @@
 
 .sectionFilm {
   display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-bottom: 72px;
+}
+
+.infoArticle {
+  display: flex;
   gap: 32px;
 
   @include media-phones {
     flex-direction: column;
   }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .ratingSection {
+      display: flex;
+      gap: 4px;
+      flex-direction: column;
+    }
+
+    .descriptionSection {
+      .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      button {
+        @include typography-paragraph-16;
+        font-weight: 400;
+        color: var(--text-quaternary);
+        padding: 0;
+      }
+    }
+  }
 }
 
-.filmInfo {
+.scheduleArticle {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+}
 
-  .rating {
-    display: flex;
-    gap: 4px;
-    flex-direction: column;
-  }
-
-  .descriptionBlock {
-    .description {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    button {
-      @include typography-paragraph-16;
-      font-weight: 400;
-      color: var(--text-quaternary);
-      padding: 0;
-    }
-  }
+.placeArticle {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }

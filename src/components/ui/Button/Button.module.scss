@@ -6,13 +6,13 @@
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
 
+  font-weight: 600;
+  @include typography-paragraph-16;
+
   &:hover,
   &:focus {
     opacity: 0.8;
   }
-
-  @include typography-paragraph-16;
-  font-weight: 600;
 }
 
 .contain {
