@@ -5,7 +5,7 @@ import styles from './Typography.module.scss';
 
 type TypographyComponent = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 
-type TypographyColor = 'primary' | 'secondary' | 'tertiary' | 'quartenery';
+type TypographyColor = 'primary' | 'secondary' | 'tertiary' | 'quartenery' | 'invert';
 
 type TypographyVariant =
   | 'h1'

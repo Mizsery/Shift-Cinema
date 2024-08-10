@@ -25,25 +25,41 @@ const filmRating = {
 
 export const Film = ({ className }: FilmProps) => {
   const [openDescription, setOpenDescription] = useState(false);
-  const [activeDate, setActiveDate] = useState(0);
-  const [activeTime, setActiveTime] = useState({
-    time: '',
-    hail: ''
+  const [activeDate, setActiveDate] = useState<FilmActiveDate>({
+    index: 0,
+    date: ''
   });
+  const [activeTime, setActiveTime] = useState<FilmActiveTime>({
+    time: '',
+    hall: ''
+  });
+  const [places, setPlaces] = useState<FilmPlaces[]>([]);
 
   const handleSelectTime = (time: string, key: string) => {
     setActiveTime({
-      hail: key,
+      hall: key,
       time
+    });
+    setPlaces([]);
+  };
+
+  const handleSelectDate = (index: number, date: string) => {
+    setActiveDate({
+      index,
+      date
+    });
+    setActiveTime({
+      time: '',
+      hall: ''
     });
   };
 
-  const handleSelectDate = (index: number) => {
-    setActiveDate(index);
-    setActiveTime({
-      time: '',
-      hail: ''
-    });
+  const handleAddPlace = (row: number, place: number) => {
+    const placeIndex = `row${row}place${place}`;
+
+    if (places.find((elem) => elem.index === placeIndex)) {
+      setPlaces(places.filter((elem) => elem.index !== placeIndex));
+    } else setPlaces([...places, { index: placeIndex, row, place }]);
   };
 
   const { filmId } = useParams({ from: '/film/$filmId' });
@@ -124,13 +140,19 @@ export const Film = ({ className }: FilmProps) => {
             />
           </article>
 
-          {activeTime.hail && (
+          {activeTime.hall && (
             <article className={styles.placeArticle}>
               <Typography component='h2' variant='h2' color='primary'>
                 Выбор места
               </Typography>
 
-              <Place schedules={scheduleList} activeDate={activeDate} activeTime={activeTime} />
+              <Place
+                schedules={scheduleList}
+                activeDate={activeDate}
+                activeTime={activeTime}
+                handleAddPlace={handleAddPlace}
+                places={places}
+              />
             </article>
           )}
         </section>

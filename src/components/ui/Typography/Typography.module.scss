@@ -16,6 +16,10 @@
   color: var(--text-quaternary);
 }
 
+.invert {
+  color: var(--text-invert);
+}
+
 .h1 {
   @include typography-h1;
 }

@@ -25,5 +25,13 @@ export const Route = createRootRouteWithContext<{
         <Link to='/'>Start Over</Link>
       </div>
     );
+  },
+  errorComponent: ({ error }) => {
+    return (
+      <div>
+        <p>This is the errorComponent configured on root route {error.message}</p>
+        <Link to='/'>Start Over</Link>
+      </div>
+    );
   }
 });

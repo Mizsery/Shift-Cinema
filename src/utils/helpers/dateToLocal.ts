@@ -9,11 +9,16 @@ const deleteLastDot = (str: string) => {
 export const dateToLocal = (date: string) => {
   const newDate = date.split('.').slice(0, 2).reverse().concat(date.slice(-2)).join('.');
 
-  const localDate = new Date(newDate).toLocaleDateString('ru', {
+  const localFullDate = new Date(newDate).toLocaleDateString('ru', {
     month: 'short',
     weekday: 'short',
     day: 'numeric'
   });
 
-  return capitalize(deleteLastDot(localDate));
+  const localShortDate = new Date(newDate).toLocaleDateString('ru', {
+    day: 'numeric',
+    month: 'long'
+  });
+
+  return { full: capitalize(deleteLastDot(localFullDate)), short: localShortDate };
 };

@@ -2,20 +2,28 @@ import clsx from 'clsx';
 
 import styles from './Place.module.scss';
 
-import { Typography } from '@/components';
+import { Button, Typography } from '@/components';
+import { HALL_NAME, PLACE_STATUS } from '@/utils/constant';
+import { dateToLocal } from '@/utils/helpers';
 
 interface PlaceProps {
   className?: string;
   schedules: FilmSeances[];
-  activeDate: number;
-  activeTime: {
-    time: string;
-    hail: string;
-  };
+  activeDate: FilmActiveDate;
+  activeTime: FilmActiveTime;
+  handleAddPlace: (row: number, place: number) => void;
+  places: FilmPlaces[];
 }
 
-export const Place = ({ schedules, activeDate, activeTime, className }: PlaceProps) => {
-  const places = schedules[activeDate].seances[activeTime.hail]
+export const Place = ({
+  schedules,
+  handleAddPlace,
+  places,
+  activeDate,
+  activeTime,
+  className
+}: PlaceProps) => {
+  const placesArray = schedules[activeDate.index].seances[activeTime.hall]
     .filter((place) => place.time === activeTime.time)
     .map((elem) => elem.hall.places)[0];
 
@@ -37,14 +45,36 @@ export const Place = ({ schedules, activeDate, activeTime, className }: PlacePro
           </Typography>
 
           <div className={styles.rows}>
-            {places.map((row, index) => (
-              <div key={`${row[0].type}${index}`} className={styles.row}>
-                <span>{index + 1}</span>
-                {row.map((elem, index) => (
+            {placesArray.map((row, rowIndex) => (
+              <div key={`${row[0].type}${rowIndex}`} className={styles.row}>
+                <span>{rowIndex + 1}</span>
+                {row.map((rowPlaces, placeIndex) => (
                   <button
-                    key={`${elem.type}${index}`}
-                    className={elem.type === 'BLOCKED' ? styles.blockedPlace : styles.freePlace}
-                  />
+                    type='button'
+                    key={`${rowPlaces.type}${placeIndex}`}
+                    className={
+                      rowPlaces.type === PLACE_STATUS.BLOCKED
+                        ? styles.blockedPlace
+                        : styles.freePlace
+                    }
+                    disabled={rowPlaces.type === PLACE_STATUS.BLOCKED}
+                    onClick={() => handleAddPlace(rowIndex + 1, placeIndex + 1)}
+                  >
+                    {places.map(
+                      (place) =>
+                        place.row === rowIndex + 1 &&
+                        place.place === placeIndex + 1 && (
+                          <Typography
+                            variant='paragraph-14'
+                            color='invert'
+                            key={`${place.row}${place.place}`}
+                            className={styles.activePlace}
+                          >
+                            {place.place}
+                          </Typography>
+                        )
+                    )}
+                  </button>
                 ))}
               </div>
             ))}
@@ -52,7 +82,40 @@ export const Place = ({ schedules, activeDate, activeTime, className }: PlacePro
         </div>
       </div>
 
-      <div className={styles.buyTickets}>Купить</div>
+      <div className={styles.buyTickets}>
+        <div>
+          <Typography variant='paragraph-12' color='tertiary'>
+            Зал
+          </Typography>
+          <Typography variant='paragraph-16-400' color='primary'>
+            {HALL_NAME[activeTime.hall as keyof typeof HALL_NAME]}
+          </Typography>
+        </div>
+
+        <div>
+          <Typography variant='paragraph-12' color='tertiary'>
+            Дата и время
+          </Typography>
+          <Typography variant='paragraph-16-400' color='primary'>
+            {dateToLocal(activeDate.date).short} {activeTime.time}
+          </Typography>
+        </div>
+
+        <div>
+          <Typography variant='paragraph-12' color='tertiary'>
+            Места
+          </Typography>
+          <Typography variant='paragraph-16-400' color='primary'>
+            {HALL_NAME[activeTime.hall as keyof typeof HALL_NAME]}
+          </Typography>
+        </div>
+
+        <Typography component='h3' variant='h3' color='primary'>
+          Сумма: 500р
+        </Typography>
+
+        <Button>Купить</Button>
+      </div>
     </div>
   );
 };

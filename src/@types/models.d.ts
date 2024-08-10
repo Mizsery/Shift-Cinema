@@ -3,12 +3,6 @@ enum Profession {
   DIRECTOR = 'DIRECTOR'
 }
 
-enum TypePlaces {
-  ECONOM = 'ECONOM',
-  BLOCKED = 'BLOCKED',
-  COMFORT = 'COMFORT'
-}
-
 interface Actors {
   id: string;
   professions: Profession[];
@@ -45,15 +39,21 @@ interface Film {
   };
 }
 
-type HailName = 'Red' | 'Blue' | 'Green';
+type hallName = 'Red' | 'Blue' | 'Green';
+
+enum PlaceType {
+  Econom = 'ECONOM',
+  Blocked = 'BLOCKED',
+  Comfort = 'COMFORT'
+}
 
 interface Seances {
   time: string;
   hall: {
-    name: HailName;
+    name: hallName;
     places: {
       price: number;
-      type: TypePlaces;
+      type: PlaceType;
     }[][];
   };
   payedTickets: {
@@ -75,7 +75,23 @@ interface FilmSchedule {
 
 interface FilmSeances {
   date: string;
-  seances: Record<HailName, Seances[]> & {
+  seances: Record<hallName, Seances[]> & {
     [key: string]: Seances[];
   };
+}
+
+interface FilmActiveTime {
+  time: string;
+  hall: string;
+}
+
+interface FilmActiveDate {
+  index: number;
+  date: string;
+}
+
+interface FilmPlaces {
+  index: string;
+  row: number;
+  place: number;
 }
